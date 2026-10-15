@@ -10,11 +10,9 @@ public class Test : MonoBehaviour
 
     [SerializeField] private float _rotationSpeed = 1.0f;
 
-  
     private void Awake()
     {
         Debug.Log("Awake!");
-        new Class2();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
@@ -33,5 +31,3 @@ public class Test : MonoBehaviour
         Debug.Log("Destroyed!");
     }
 }
-
-public class Class2 { }
