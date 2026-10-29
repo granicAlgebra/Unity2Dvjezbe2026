@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Spawner : MonoBehaviour
 {
@@ -22,7 +23,14 @@ public class Spawner : MonoBehaviour
         Color color = Color.red;
 
         Gizmos.color = color;
-        Vector3 center = new Vector3(_positionA.x, _positionA.y) - new Vector3(_positionB.x, _positionB.y);
-        Gizmos.DrawWireCube(center, center);
+
+        float minX = Mathf.Min(_positionA.x, _positionB.x);
+        float maxX = Mathf.Max(_positionA.x, _positionB.x);
+        float minY = Mathf.Min(_positionA.y, _positionB.y);
+        float maxY = Mathf.Max(_positionA.y, _positionB.y);
+
+        Vector3 center = (new Vector3(_positionB.x, _positionB.y) + new Vector3(_positionA.x, _positionA.y)) / 2;
+        Vector3 size = new Vector3(maxX - minX, maxY - minY);
+        Gizmos.DrawWireCube(center, size);
     }
 }
